@@ -1,0 +1,24 @@
+<div class="card text-dark bg-light mb-3" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Coronavirus cases</h5>
+      <h6 class="card-subtitle mb-2 text-muted">India</h6>
+      <p class="card-text text-muted">Total confirmed cases</p>
+      {{ totalCases }}
+    </div>
+      <table class="table table-borderless">
+          <thead>
+            <tr>                              
+              <th scope="col" style="text-align: center; color: rgb(148, 148, 148);">Active</th>
+              <th scope="col" style="text-align: center; color: rgb(148, 148, 148);">Recovered</th>
+              <th scope="col" style="text-align: center; color: rgb(148, 148, 148);">Deaths</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center; "><b>{{ active }}</b></td>
+              <td style="text-align: center; color: rgb(0, 214, 143);"><b>{{ recovered }}</b></td>
+              <td style="text-align: center; color: rgb(251, 63, 63);"><b>{{ deaths }}</b></td>
+            </tr>
+          </tbody>
+      </table>
+</div>

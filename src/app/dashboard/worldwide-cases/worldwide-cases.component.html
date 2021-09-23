@@ -1,0 +1,28 @@
+<div class="card text-dark bg-light mb-3" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Coronavirus cases</h5>
+      <h6 class="card-subtitle mb-2 text-muted">worldwide</h6>
+      <p class="card-text text-muted">Total confirmed cases</p>
+      {{ totalCases }}
+    </div>
+    <ul class="list-group list-group-flush">
+       <li class="list-group-item d-flex justify-content-between align-items-center">
+          Active cases
+           <span class="badge bg-primary rounded-pill">
+              {{ active }}
+           </span>
+        </li>
+       <li class="list-group-item d-flex justify-content-between align-items-center">
+          Recovered
+          <span class="badge bg-success rounded-pill">
+            {{ recovered }}
+          </span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+           Deaths
+           <span class="badge bg-danger rounded-pill">
+            {{ deaths }}
+           </span>
+        </li>
+    </ul>
+</div>
