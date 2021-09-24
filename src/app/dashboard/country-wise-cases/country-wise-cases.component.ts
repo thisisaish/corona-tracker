@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { DataFetchService } from 'src/app/data/data-fetch.service';
 declare var google: any;
 
 @Component({
@@ -10,33 +11,20 @@ export class CountryWiseCasesComponent implements OnInit {
   
   casesByCountry = new Map();  
 
-  constructor() { 
-    this.casesByCountry.set('USA', this.getRandomValue());
-    this.casesByCountry.set('China', this.getRandomValue());
-    this.casesByCountry.set('Italy', this.getRandomValue());
-    this.casesByCountry.set('Spain', this.getRandomValue());
-    this.casesByCountry.set('Germany', this.getRandomValue());
-    this.casesByCountry.set('France', this.getRandomValue());
-    this.casesByCountry.set('Iran', this.getRandomValue());
-    this.casesByCountry.set('UK', this.getRandomValue());
-    this.casesByCountry.set('Switzerland', this.getRandomValue());
-    this.casesByCountry.set('Netherlands', this.getRandomValue());
-    this.casesByCountry.set('south korea', this.getRandomValue());
-    this.casesByCountry.set('Belgium', this.getRandomValue());
-    this.casesByCountry.set('Australia', this.getRandomValue());
-    this.casesByCountry.set('Pakistan', this.getRandomValue());
-    this.casesByCountry.set('Nepal', this.getRandomValue());
-    this.casesByCountry.set('Malasia', this.getRandomValue());
-    this.casesByCountry.set('Austria', this.getRandomValue());
-  }
+  constructor(private dataService: DataFetchService) {}
   
   ngOnInit(): void {
-  }
-  
-  private getRandomValue(){
-    let min = 10;
-    let max = 10000;
-    return Math.floor(Math.random() * (max - min) + min);
+    this.dataService.getAllCases()
+      .subscribe(
+        respData => {
+          respData.forEach((resp) => {
+            this.casesByCountry.set(resp.country, resp.active);
+          });
+        },
+        errorMsg => {
+          console.error(errorMsg);
+        }
+      )
   }
 
 }

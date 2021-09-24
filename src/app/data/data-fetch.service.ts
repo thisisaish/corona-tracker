@@ -5,6 +5,15 @@ import { Observable } from "rxjs";
 
 export interface ResponseData{
     "updated": number,
+    "country": string,
+    "countryInfo": {
+        "_id": number,
+        "iso2": string,
+        "iso3": string,
+        "lat": number,
+        "long": number,
+        "flag": string
+    },
     "cases": number,
     "todayCases": number,
     "deaths": number,
@@ -43,6 +52,10 @@ export class DataFetchService{
     getNationwideCases(country: string){
         let url = 'https://corona.lmao.ninja/v2/countries/'+country;
         return this.http.get<ResponseData>(url);
+    }
+
+    getAllCases(){
+        return this.http.get<ResponseData[]>('https://corona.lmao.ninja/v2/countries?sort=active')
     }
 
 }
