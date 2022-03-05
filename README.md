@@ -1,5 +1,10 @@
 # CoronaTracker
 
+A dashboard which displays the count of corona cases in each country.
+
+![Screenshot (120)](https://user-images.githubusercontent.com/36632685/156873495-e96755c6-1f57-42a0-b481-ce639c5c097b.png)
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.4.
 
 ## Development server
